@@ -35,7 +35,7 @@ app.get("/subscribers/:id", async (req, res) => {
       res.send(subscriber);
     }
   } catch (e) {
-    res.status(400).send({ message: "incorrect id format" });
+    res.status(400).send({ message: e.message });
   }
 });
 module.exports = app;
