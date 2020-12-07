@@ -28,7 +28,7 @@ app.get("/subscribers/:id", async (req, res) => {
   const id = req.params.id;
 
   try {
-    const subscriber = await subscriberModel.findOne({ __id: id });
+    const subscriber = await subscriberModel.findOne({ _id: id });
     if (subscriber == null) {
       res.status(400).send({ message: "Invalid id" });
     } else {
