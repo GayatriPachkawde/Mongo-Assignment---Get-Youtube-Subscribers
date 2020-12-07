@@ -32,7 +32,7 @@ app.get("/subscribers/:id", async (req, res) => {
 
     res.send(subscriber);
   } catch (e) {
-    res.sendStatus(404).send({ message: error.message });
+    res.sendStatus(400).send({ message: error.message });
     // res.send({ message: error.message });
   }
 });
