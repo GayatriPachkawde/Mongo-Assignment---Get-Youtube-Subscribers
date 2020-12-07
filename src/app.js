@@ -31,7 +31,7 @@ app.get("/subscribers/:id", async (req, res) => {
     const subscriber = await subscriberModel.findById(id);
     res.send(subscriber);
   } catch (e) {
-    res.sendStatus(400);
+    res.sendStatus(400).send({ message: e });
   }
 });
 module.exports = app;
