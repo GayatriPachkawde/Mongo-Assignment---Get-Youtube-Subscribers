@@ -28,10 +28,14 @@ app.get("/subscribers/:id", async (req, res) => {
   const id = req.params.id;
 
   try {
-    const subscriber = await subscriberModel.findById(id);
-    res.send(subscriber);
+    const subscriber = await subscriberModel.findOne({ __id: id });
+    if (subscriber == null) {
+      res.status(400).send({ message: e });
+    } else {
+      res.send(subscriber);
+    }
   } catch (e) {
-    res.sendStatus(400).send({ message: e });
+    res.status(400).send({ message: e });
   }
 });
 module.exports = app;
