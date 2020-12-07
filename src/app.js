@@ -30,12 +30,12 @@ app.get("/subscribers/:id", async (req, res) => {
   try {
     const subscriber = await subscriberModel.findOne({ __id: id });
     if (subscriber == null) {
-      res.status(400).send({ message: e });
+      res.status(400).send({ message: "Invalid id" });
     } else {
       res.send(subscriber);
     }
   } catch (e) {
-    res.status(400).send({ message: e });
+    res.status(400).send({ message: "incorrect id format" });
   }
 });
 module.exports = app;
